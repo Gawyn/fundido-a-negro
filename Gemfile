@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.6'
 
 # Frontend
 gem 'jquery-rails'
