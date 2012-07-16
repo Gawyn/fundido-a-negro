@@ -1,5 +1,9 @@
-table
-  - @users.each do |user|
+table.table.table-striped
+  thead
     tr
-      td= user.email
-  
+      th Email
+  tbody
+    - @users.each do |user|
+      tr
+        td= user.email
+    
