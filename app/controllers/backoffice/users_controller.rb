@@ -11,8 +11,10 @@ class Backoffice::UsersController < Backoffice::BackofficeController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "User created."
+      redirect_to users_path
     else
       flash[:error] = "It was not possible to create the user."
+      redirect_to :back
     end
   end
 
@@ -20,8 +22,10 @@ class Backoffice::UsersController < Backoffice::BackofficeController
     @user = User.find(params[:id])
     if @user.destroy
       flash[:notice] = "User destroyed."
+      redirect_to users_path
     else
       flash[:error] = "It was not possible to destroy the user."
+      redirect_to :back
     end
   end
 
@@ -33,8 +37,10 @@ class Backoffice::UsersController < Backoffice::BackofficeController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated."
+      redirect_to users_path
     else
       flash[:error] = "It was not possible to update the user."
+      redirect_to :back
     end
   end
 end
