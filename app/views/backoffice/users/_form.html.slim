@@ -1,0 +1,5 @@
+= simple_form_for [:backoffice, @user] do |f|
+  = f.input :email
+  = f.input :password
+  = f.input :role, :collection => User::ROLES, :include_blank => false
+  = f.submit
