@@ -1,7 +1,6 @@
 FundidoANegro::Application.routes.draw do
   namespace :backoffice do
-    devise_for :users
-
+    devise_for :users, :controllers => { :sessions => "backoffice/sessions" }
     resources :users, :except => [:show]
   end
 end
