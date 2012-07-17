@@ -2,8 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Document
-
     if user
       case user.role
         when "admin"
