@@ -26,7 +26,13 @@ html lang="en"
           = link_to "Fundido a Negro", nil, :class => "brand"
           .container.nav-collapse
             ul.nav
-              li= link_to "Users", backoffice_users_path
+              - if can? :read, User
+                li= link_to "Users", backoffice_users_path
+              - if can? :read, Document
+                li= link_to "Documents", backoffice_documents_path
+            ul.nav.pull-right
+              - if current_user
+                li= link_to "Logout", destroy_user_session_path, :method => :delete
 
     .container
       .content
