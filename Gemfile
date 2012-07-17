@@ -10,6 +10,7 @@ gem 'simple_form'
 
 # User management
 gem 'devise'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
