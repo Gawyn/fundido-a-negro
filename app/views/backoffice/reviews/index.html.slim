@@ -1,0 +1,17 @@
+= link_to "New review", new_backoffice_review_path, :class => "btn btn-primary"
+
+table.table.table-striped
+  thead
+    tr
+      th Title
+      th Author
+      th Actions
+  tbody
+    - @reviews.each do |review|
+      tr
+        td= review.title
+        td= review.author.email
+        td
+          = link_to "Remove", backoffice_review_path(review), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger"
+          |   
+          = link_to "Edit", edit_backoffice_review_path(review), :class => "btn btn-mini"
