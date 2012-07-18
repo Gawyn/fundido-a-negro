@@ -9,4 +9,9 @@ table.table.table-striped
       tr
         td= document.title
         td= document.author.email
-        td= link_to "Remove", backoffice_document_path(document), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger"
+        td
+          = link_to "Remove", backoffice_document_path(document), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger"
+          - if document.type == "Article"
+            = link_to "Edit", edit_backoffice_article_path(document)
+          - elsif document.class == "Review"
+            = link_to "Edit", edit_backoffice_review_path(document)
