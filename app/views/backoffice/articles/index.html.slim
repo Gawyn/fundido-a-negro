@@ -1,0 +1,17 @@
+= link_to "New article", new_backoffice_article_path, :class => "btn btn-primary"
+
+table.table.table-striped
+  thead
+    tr
+      th Title
+      th Author
+      th Actions
+  tbody
+    - @articles.each do |article|
+      tr
+        td= article.title
+        td= article.author.email
+        td
+          = link_to "Remove", backoffice_article_path(article), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger"
+          |   
+          = link_to "Edit", edit_backoffice_article_path(article), :class => "btn btn-mini"
