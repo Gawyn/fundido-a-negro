@@ -7,9 +7,11 @@ gem 'rails', '3.2.6'
 gem 'jquery-rails'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'inherited_resources'
 
 # User management
 gem 'devise'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
