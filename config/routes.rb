@@ -6,7 +6,8 @@ FundidoANegro::Application.routes.draw do
     resources :reviews, :except => [:show]
   end
 
-  resources :articles, :only => [:show]
+  resources :articles, :only => [:index, :show]
+  resources :reviews, :only => [:index, :show]
 
   root :to => "home#index"
 end
