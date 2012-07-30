@@ -3,7 +3,7 @@ class Document < ActiveRecord::Base
   STATUS = %w{ cabecera portada }
 
   attr_accessible :body, :title, :created_by,
-    :status
+    :status, :author
 
   belongs_to :created_by, :class_name => "User"
 

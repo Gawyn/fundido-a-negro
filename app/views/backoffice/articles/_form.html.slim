@@ -1,5 +1,6 @@
 = simple_form_for [:backoffice, @article] do |f|
   = f.input :title
+  = f.input :author
   = f.input :status, :collection => Document::STATUS
   = f.input :body
   = f.submit
