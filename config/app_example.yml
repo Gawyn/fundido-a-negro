@@ -1,0 +1,20 @@
+production:
+  s3:
+    access_key_id: aaaa
+    secret_access_key: aaaaa
+    region: eu-west-1
+    directory: fundido-a-negro
+
+development:
+  s3:
+    access_key_id: aaaa
+    secret_access_key: aaaaa
+    region: eu-west-1
+    directory: fundido-a-negro-development
+
+test:
+  s3:
+    access_key_id: aaaa
+    secret_access_key: aaaaa
+    region: eu-west-1
+    directory: fundido-a-negro-test
