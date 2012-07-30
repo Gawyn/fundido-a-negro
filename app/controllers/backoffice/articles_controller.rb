@@ -4,7 +4,7 @@ class Backoffice::ArticlesController < Backoffice::BackofficeController
 
   def create
     @article = Article.new(params[:article])
-    @article.author = current_user
+    @article.created_by = current_user
     if @article.save
       flash[:notice] = "Article created."
       redirect_to backoffice_articles_path
