@@ -4,7 +4,7 @@ class Backoffice::ReviewsController < Backoffice::BackofficeController
 
   def create
     @review = Review.new(params[:review])
-    @review.author = current_user
+    @review.created_by = current_user
     if @review.save
       flash[:notice] = "Review created."
       redirect_to backoffice_reviews_path
