@@ -8,10 +8,10 @@ class Ability
           can :manage, :all
 
         when "editor"
-          can :create, [Article, Review]
-          can [:update, :read], [Article, Review] do |resource|
-            resource.author.id = user.id
+          can :manage, [Article, Review] do |resource|
+            resource.created_by.id == user.id
           end
+          can :create, [Article, Review]
       end
     end
   end
