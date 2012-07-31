@@ -4,6 +4,8 @@ FundidoANegro::Application.routes.draw do
     resources :users, :except => [:show]
     resources :articles, :except => [:show]
     resources :reviews, :except => [:show]
+
+    root :to => "articles#index"
   end
 
   resources :articles, :only => [:index, :show]
