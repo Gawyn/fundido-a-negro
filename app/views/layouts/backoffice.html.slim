@@ -28,10 +28,8 @@ html lang="en"
             ul.nav
               - if can? :read, User
                 li= link_to "Users", backoffice_users_path
-              - if can? :read, Article
-                li= link_to "Articles", backoffice_articles_path
-              - if can? :read, Review
-                li= link_to "Reviews", backoffice_reviews_path
+              - if can? :read, Document
+                li= link_to "Documents", backoffice_documents_path
             ul.nav.pull-right
               - if current_user
                 li= link_to "Logout", destroy_user_session_path, :method => :delete
@@ -48,4 +46,4 @@ html lang="en"
       Javascripts
       \==================================================
     /! Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
+    = javascript_include_tag "backoffice"

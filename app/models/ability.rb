@@ -4,14 +4,17 @@ class Ability
   def initialize(user)
     if user
       case user.role
-        when "admin"
+        when "superadmin"
           can :manage, :all
 
+        when "admin"
+          can :manage, [Document]
+
         when "editor"
-          can :create, [Article, Review]
-          can [:update, :read], [Article, Review] do |resource|
-            resource.author.id = user.id
+          can :manage, [Document] do |resource|
+            resource.created_by.id == user.id
           end
+          can :create, [Document]
       end
     end
   end
