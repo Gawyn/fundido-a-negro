@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w{ editor admin }
+  ROLES = %w{ editor admin superadmin }
   devise :database_authenticatable,
          :rememberable, :trackable, :validatable
 

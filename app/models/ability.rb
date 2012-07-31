@@ -4,8 +4,11 @@ class Ability
   def initialize(user)
     if user
       case user.role
-        when "admin"
+        when "superadmin"
           can :manage, :all
+
+        when "admin"
+          can :manage, [Article, Review]
 
         when "editor"
           can :manage, [Article, Review] do |resource|
