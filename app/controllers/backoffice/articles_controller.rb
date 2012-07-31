@@ -7,7 +7,7 @@ class Backoffice::ArticlesController < Backoffice::BackofficeController
     @article.created_by = current_user
     if @article.save
       flash[:notice] = "Article created."
-      redirect_to backoffice_articles_path
+      redirect_to backoffice_documents_path
     else
       flash[:error] = "It was not possible to save the article."
       redirect_to :back
@@ -17,7 +17,7 @@ class Backoffice::ArticlesController < Backoffice::BackofficeController
   def update
     if @article.update_attributes(params[:article])
       flash[:notice] = "Article updated."
-      redirect_to backoffice_articles_path
+      redirect_to backoffice_documents_path
     else
       flash[:error] = "It was not possible to update the article."
       redirect_to :back

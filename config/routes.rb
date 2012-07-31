@@ -2,10 +2,11 @@ FundidoANegro::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "backoffice/sessions" }, :path_prefix => "/backoffice"
   namespace :backoffice do
     resources :users, :except => [:show]
-    resources :articles, :except => [:show]
-    resources :reviews, :except => [:show]
+    resources :articles, :except => [:index, :show]
+    resources :reviews, :except => [:index, :show]
+    resources :documents, :only => :index
 
-    root :to => "articles#index"
+    root :to => "documents#index"
   end
 
   resources :articles, :only => [:index, :show]
