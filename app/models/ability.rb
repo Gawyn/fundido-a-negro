@@ -8,13 +8,13 @@ class Ability
           can :manage, :all
 
         when "admin"
-          can :manage, [Article, Review]
+          can :manage, [Document]
 
         when "editor"
-          can :manage, [Article, Review] do |resource|
+          can :manage, [Document] do |resource|
             resource.created_by.id == user.id
           end
-          can :create, [Article, Review]
+          can :create, [Document]
       end
     end
   end
