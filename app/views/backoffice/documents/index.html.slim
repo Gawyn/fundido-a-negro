@@ -1,0 +1,22 @@
+= link_to "New article", new_backoffice_article_path, :class => "btn btn-primary"
+|  
+= link_to "New review", new_backoffice_review_path, :class => "btn btn-primary"
+
+table.table.table-striped
+  thead
+    tr
+      th Title
+      th Actions
+  tbody
+    - @documents.each do |document|
+      tr
+        td= document.title
+        td
+          - if document.type == "Article"
+            = link_to "Remove", backoffice_article_path(document), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger"
+            |   
+            = link_to "Edit", edit_backoffice_article_path(document), :class => "btn btn-mini"
+          - elsif document.type == "Review"
+            = link_to "Remove", backoffice_review_path(document), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini btn-danger"
+            |   
+            = link_to "Edit", edit_backoffice_review_path(document), :class => "btn btn-mini"
