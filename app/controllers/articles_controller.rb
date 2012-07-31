@@ -1,6 +1,4 @@
 class ArticlesController < ApplicationController
-  inherit_resources
-
   def index
     @articles = Article.all
   end

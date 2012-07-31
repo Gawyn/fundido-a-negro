@@ -1,7 +1,4 @@
 class ReviewsController < ApplicationController
-  inherit_resources
-  load_resource
-
   def index
     @reviews = Review.all
   end
