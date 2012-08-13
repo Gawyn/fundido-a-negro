@@ -10,6 +10,8 @@ class Document < ActiveRecord::Base
   validates_inclusion_of :type, :in => TYPES
   validates_inclusion_of :status, :in => STATUS, :allow_blank => true
 
+  scope :published, where(arel_table[:published].eq(true))
+
   mount_uploader :header_image, HeaderImageUploader
 
   def formatted_body
