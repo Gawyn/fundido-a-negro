@@ -14,11 +14,17 @@ table.table.table-striped
         td= document.title
         td= best_in_place_if !current_user.editor?, document, :status, :type => :select, :collection => @options, :path => backoffice_document_path(document), :object_name => :document
         td
+          - if !current_user.editor?
+            - if document.published
+              = link_to "Unpublish", unpublish_backoffice_document_path(document), :class => "btn btn-mini", :method => :put, :data => { :confirm => "Are you sure?" }
+            - else
+              = link_to "Publish", publish_backoffice_document_path(document), :class => "btn btn-mini", :method => :put, :data => { :confirm => "Are you sure?" }
+            |  
           - if document.type == "Article"
-            = link_to "Remove", backoffice_article_path(document), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-mini btn-danger"
-            |   
             = link_to "Edit", edit_backoffice_article_path(document), :class => "btn btn-mini"
-          - elsif document.type == "Review"
-            = link_to "Remove", backoffice_review_path(document), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-mini btn-danger"
             |   
+            = link_to "Remove", backoffice_article_path(document), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-mini btn-danger"
+          - elsif document.type == "Review"
             = link_to "Edit", edit_backoffice_review_path(document), :class => "btn btn-mini"
+            |   
+            = link_to "Remove", backoffice_review_path(document), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-mini btn-danger"
