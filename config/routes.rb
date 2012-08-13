@@ -4,7 +4,12 @@ FundidoANegro::Application.routes.draw do
     resources :users, :except => [:show]
     resources :articles, :except => [:index, :show]
     resources :reviews, :except => [:index, :show]
-    resources :documents, :only => [:index, :update]
+    resources :documents, :only => [:index, :update] do
+      member do
+        put :publish
+        put :unpublish
+      end
+    end
 
     root :to => "documents#index"
   end
