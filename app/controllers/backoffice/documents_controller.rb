@@ -12,4 +12,16 @@ class Backoffice::DocumentsController < Backoffice::BackofficeController
     @document.update_attributes(params[:document])
     respond_with @document
   end
+
+  def publish
+    @document = Document.find(params[:id])
+    @document.update_attribute(:published, true)
+    redirect_to backoffice_documents_path
+  end
+
+  def unpublish
+    @document = Document.find(params[:id])
+    @document.update_attribute(:published, false)
+    redirect_to backoffice_documents_path
+  end
 end
